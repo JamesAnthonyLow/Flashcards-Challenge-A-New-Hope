@@ -8,6 +8,7 @@ describe "Score Controller" do
 		deck = Deck.create!(name: "random flashcards")
 		deck.cards << Array.new(8) { Card.create!(answer: "nonsense", question: "more nonsense")}
 		@game.deck = deck
+		@game.save
 	end
 
 	after(:each) do
@@ -19,10 +20,10 @@ describe "Score Controller" do
 		let(:game) { @game }
 		it "includes score info" do
 			get "game/#{@game.id}/score"
-			# expect(last_response.body).to include(game.deck.name)
-			expect(last_response.body).to include(game.first_try_guesses)
-			expect(last_response.body).to include(game.cards_count)
-			expect(last_response.body).to include(game.guesses.count)
+			expect(last_response.body).to include("#{game.deck.name}")
+			expect(last_response.body).to include("#{game.first_try_guesses}")
+			expect(last_response.body).to include("#{game.cards_count}")
+			expect(last_response.body).to include("#{game.guesses.count}")
 		end
 	end
 end
