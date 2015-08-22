@@ -1,34 +1,32 @@
-get "/game/:id" do
-  p @game = Game.find(params[:id])
-  p @card = @game.deck_sample
-  p @deck = Deck.find_by(id: @game.deck_id)
+require 'pry'
 
+get "/deck/:id" do
+  @deck = Deck.find_by(id: params[:id])
+  erb :"deck/show"
+end
+
+post "/deck/:id" do
+  game = Game.new
+  game.deck = Deck.find_by(id: params[:id])
+  game.save
+  redirect "/game/#{game.id}"
+
+end
+
+post "/game/:id/guesses" do
+  @card = Card.find_by(id: params[:card_id])
+  @guess = Guess.new(game_id: params[:id], card_id: params[:card_id], user_answer: params[:user_answer])
+  @card.answer == params[:user_answer] ? @guess.correct! : @guess.incorrect
+  redirect "/game/#{params[:id]}"
+end
+
+get "/game/:id" do
+  @game = Game.find_by(id: params[:id])
+  @card = @game.deck_sample
+  @deck = @game.deck
   if @card
-    redirect "/game/#{@game.id}/card/#{@card.id}"
+    erb :game_session
   else
     redirect "/game/#{@game.id}/score"
   end
-end
-
-get "/game/:game_id/card/:id" do
-  @game = Game.find(params[:game_id])
-  @card = Card.find(params[:id])
-  @deck = Deck.find_by(id: @card.deck_id)
-
-  erb :game_session
-end
-
-post "/game/:game_id/card/:id" do
-  @game = Game.find(params[:game_id])
-  @answer = Card.find(params[:id]).answer
-
-  @guess = params["guess"]
-
-  if @guess == @answer
-    Guess.find_or_create_by(game_id: @game.id, card_id: params[:id], user_answer: @guess, correct: true)
-  else
-    Guess.find_or_create_by(game_id: @game.id, card_id: params[:id], user_answer: @guess, correct: false)
-  end
-
-  redirect "/game/#{@game.id}"
 end
