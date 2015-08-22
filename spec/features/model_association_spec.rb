@@ -40,3 +40,9 @@ describe Guess do
 		 should belong_to(:game)
 	end
 end
+
+describe User do
+	it 'has many games' do
+		 should have_many(:games)
+	end
+end
