@@ -1,3 +1,4 @@
+img src: http://assets.huluim.com/blog/StarTrek_Capns.jpeg
 Star Trek Trivia
 
 Description: "Trivia from TOS, TNG, Voyager, DS9 and Enterprise"
