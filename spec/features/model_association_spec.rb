@@ -30,3 +30,13 @@ describe Game do
 		 should have_many(:guesses)
 	end
 end
+
+describe Guess do
+	it 'should have one card' do
+		 should have_one(:card)
+	end
+
+	it 'should belong to game' do
+		 should belong_to(:game)
+	end
+end
