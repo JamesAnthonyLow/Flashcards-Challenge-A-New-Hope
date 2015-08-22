@@ -1,5 +1,5 @@
 <!--score view-->
 <div class="container">
-<h1><%= @game.name %></h1>
-<p>You've completed a round of <%= @game.name %>.  You answered ( <%= @game.first_try_guesses %> / <%= @game.cards_count %> ) cards corredctly on the first try.  You submitted <%= @game.guesses.count %> total guesses before each card was answered correctly.
+<h1><%= @game.deck.name %></h1>
+<p>You've completed a round of <%= @game.deck.name %>.  You answered ( <%= @game.first_try_guesses %> / <%= @game.cards_count %> ) cards corredctly on the first try.  You submitted <%= @game.guesses.count %> total guesses before each card was answered correctly.
 	</div>
