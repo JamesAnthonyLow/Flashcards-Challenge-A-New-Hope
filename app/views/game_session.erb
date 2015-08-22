@@ -1,0 +1,13 @@
+<p>Name of Deck:&nbsp<%= @deck.name %></p>
+
+<p>
+  Question:&nbsp<%= @card.question %>
+  <form action="/game/<%=@game.id%>/guesses" method="POST">
+    <div class="row">
+      <div><label for="guess">Guess:</label></div>
+      <div><input class="input" name="user_answer" type="text" value="" size="30" /></div>
+    </div>
+    <input type="hidden" name="card_id" value="<%=@card.id%>">
+    <div><input type="submit" value="Submit Answer"/></div>
+  </form>
+</p>
