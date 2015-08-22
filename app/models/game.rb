@@ -22,9 +22,9 @@ class Game < ActiveRecord::Base
 		end.sample
 	end
 
-	# def guesses_correct_first_try
-	# 	guesses.map(&:card)
-	# end
+	def first_try_guesses
+		guesses.map(&:card)
+	end
 
 
 end
