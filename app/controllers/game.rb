@@ -13,7 +13,7 @@ end
 post "/game/:id/guesses" do
   @card = Card.find_by(id: params[:card_id])
   @guess = Guess.new(game_id: params[:id], card_id: params[:card_id], user_answer: params[:user_answer])
-  @card.answer == params[:user_answer] ? @guess.correct! : @guess.incorrect
+  @card.answer == params[:user_answer] ? @guess.correct! : @guess.save
   redirect "/game/#{params[:id]}"
 end
 
