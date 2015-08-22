@@ -27,5 +27,7 @@ class Game < ActiveRecord::Base
 		guessed_cards.reject { |card| guessed_cards.count(card) > 1 }
 	end
 
-
+	def played_on
+		created_at.to_date
+	end
 end
