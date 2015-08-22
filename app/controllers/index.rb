@@ -25,4 +25,9 @@ post '/login' do
   "worked"
 end
 
+get '/logout' do
+  session.clear
+  redirect "/"
+end
+
 
