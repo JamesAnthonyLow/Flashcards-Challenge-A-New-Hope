@@ -19,7 +19,7 @@ describe "Score Controller" do
 	describe "displays score" do
 		let(:game) { @game }
 		it "includes score info" do
-			get "game/#{@game.id}/score"
+			get "/game/#{@game.id}/score"
 			expect(last_response.body).to include("#{game.deck.name}")
 			expect(last_response.body).to include("#{game.first_try_guesses}")
 			expect(last_response.body).to include("#{game.cards_count}")
