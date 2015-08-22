@@ -3,7 +3,8 @@ class Game < ActiveRecord::Base
 	has_many :guesses
 
 	def deck=(deck)
-		deck_id = deck.id
+		self.deck_id = deck.id
+		self.save
 	end
 
 	def deck
@@ -24,7 +25,7 @@ class Game < ActiveRecord::Base
 
 	def first_try_guesses
 		guessed_cards = guesses.map(&:card)
-		guessed_cards.reject { |card| guessed_cards.count(card) > 1 }
+		guessed_cards.reject { |card| guessed_cards.count(card) > 1 }.count
 	end
 
 	def played_on
