@@ -4,12 +4,10 @@
   Question:&nbsp<%= @card.question %>
   <form action="/game/<%=@game.id%>/guesses" method="POST">
     <div class="row">
-      <label for="guess">Guess:</label><br />
-      <input class="input" name="user_answer" type="text" value="" size="30" />
+      <div><label for="guess">Guess:</label></div>
+      <div><input class="input" name="user_answer" type="text" value="" size="30" /></div>
     </div>
     <input type="hidden" name="card_id" value="<%=@card.id%>">
-    <input type="submit" value="Submit Answer"/>
+    <div><input type="submit" value="Submit Answer"/></div>
   </form>
 </p>
-
-<p>Game ID:&nbsp<%= @game.id %></p>
