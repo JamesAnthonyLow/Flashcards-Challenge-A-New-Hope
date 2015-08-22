@@ -23,7 +23,8 @@ class Game < ActiveRecord::Base
 	end
 
 	def first_try_guesses
-		guesses.map(&:card)
+		guessed_cards = guesses.map(&:card)
+		guessed_cards.reject { |card| guessed_cards.count(card) > 1 }
 	end
 
 
