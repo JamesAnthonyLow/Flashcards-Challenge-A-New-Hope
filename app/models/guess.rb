@@ -15,4 +15,9 @@ class Guess < ActiveRecord::Base
 		self.correct = true
 		self.save
 	end
+
+	def incorrect
+		self.correct = false
+    self.save
+	end
 end
