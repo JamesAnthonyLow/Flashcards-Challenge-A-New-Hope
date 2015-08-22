@@ -20,3 +20,13 @@ describe Deck do
 		 should have_many(:cards)
 	end
 end
+
+describe Game do
+	it 'should belong to user' do
+		 should belong_to(:user)
+	end
+
+	it 'has many guesses' do
+		 should have_many(:guesses)
+	end
+end
