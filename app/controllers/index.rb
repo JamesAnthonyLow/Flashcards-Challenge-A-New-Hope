@@ -1,6 +1,6 @@
 get '/' do
-  @decks = Deck.all
-  erb :index
+  decks = Deck.all
+  erb :index, locals: {decks: decks}
 end
 
 get '/signup' do

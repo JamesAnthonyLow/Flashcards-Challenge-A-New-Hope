@@ -15,9 +15,13 @@
 <body>
   <header>
     <nav>
-      <a class="button" href="/">Home</a>
-      <a class="button" href="/login">Log In</a>
-      <a class="button" href="/signup">Sign Up</a>
+      <% if session[:user_id] %>
+        <a class="button" href="#">Profile</a>
+        <a class="button" href="#">Log Out</a>
+      <% else %>
+        <a class="button" href="/login">Log In</a>
+        <a class="button" href="/signup">Sign Up</a>
+      <% end %>
     </nav>
     <a class="logo" href="/">Flashcards</a>
   </header>
