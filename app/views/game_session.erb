@@ -1,28 +1,13 @@
 <p>Name of Deck:&nbsp<%= @deck.name %></p>
-<<<<<<< HEAD
 
 <p>
   Question:&nbsp<%= @card.question %>
   <form action="/game/<%=@game.id%>/guesses" method="POST">
     <div class="row">
-      <label for="guess">Guess:</label><br />
-      <input class="input" name="user_answer" type="text" value="" size="30" />
+      <div><label for="guess">Guess:</label></div>
+      <div><input class="input" name="user_answer" type="text" value="" size="30" /></div>
     </div>
     <input type="hidden" name="card_id" value="<%=@card.id%>">
-    <input type="submit" value="Submit Answer"/>
+    <div><input type="submit" value="Submit Answer"/></div>
   </form>
 </p>
-
-=======
-<br>
-<p>
-  Question:&nbsp<%= @card.question %><br>
-  <form id="contact_form" action="/game/<%=@game.id%>/card/<%=@card.id%>" method="POST" enctype="multipart/form-data">
-    <div class="row">
-      <label for="guess">Guess:</label><br />
-      <input id="guess" class="input" name="guess" type="text" value="" size="30" /><br />
-    </div>
-</p>
-<br>
->>>>>>> 5edc7c93514142c7b773f7aa66ef880aaf41f812
-<p>Game ID:&nbsp<%= @game.id %></p>
