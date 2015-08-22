@@ -10,4 +10,9 @@ class Guess < ActiveRecord::Base
 	def card
 		Card.find_by(id: card_id)
 	end
+
+	def correct!
+		self.correct = true
+		self.save
+	end
 end
