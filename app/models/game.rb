@@ -13,4 +13,18 @@ class Game < ActiveRecord::Base
 	def cards_count
 		deck.cards.count
 	end
+
+	def deck_sample
+		deck.cards.reject do |card| 
+			card.guesses.any? do |guess|
+				guess.correct? && self == guess.game
+			end
+		end.sample
+	end
+
+	# def guesses_correct_first_try
+	# 	guesses.map(&:card)
+	# end
+
+
 end
