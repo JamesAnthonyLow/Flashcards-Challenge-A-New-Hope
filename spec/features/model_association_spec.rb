@@ -32,8 +32,8 @@ describe Game do
 end
 
 describe Guess do
-	it 'should have one card' do
-		 should have_one(:card)
+	it 'should belong to card' do
+		 should belong_to(:card)
 	end
 
 	it 'should belong to game' do
