@@ -1,6 +1,6 @@
 get '/' do
-  @decks = Deck.all
-  erb :index
+  decks = Deck.all
+  erb :index, locals: {decks: decks}
 end
 
 get '/signup' do
@@ -8,7 +8,13 @@ get '/signup' do
 end
 
 post '/signup' do
-  "worked"
+  user = User.new(params[:user])
+  if user.save!
+    login(user)
+    redirect "/"
+  else
+    redirect "/signup"
+  end
 end
 
 get '/login' do
