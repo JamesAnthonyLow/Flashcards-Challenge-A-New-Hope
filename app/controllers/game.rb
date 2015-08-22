@@ -1,5 +1,3 @@
-require 'pry'
-
 get "/deck/:id" do
   @deck = Deck.find_by(id: params[:id])
   erb :"deck/show"
@@ -10,7 +8,6 @@ post "/deck/:id" do
   game.deck = Deck.find_by(id: params[:id])
   game.save
   redirect "/game/#{game.id}"
-
 end
 
 post "/game/:id/guesses" do
