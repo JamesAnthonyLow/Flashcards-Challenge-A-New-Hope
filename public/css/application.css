@@ -36,6 +36,10 @@ a.button:hover {
   color: #7CCFA6;
 }
 
+a.logo {
+  color: #000;
+}
+
 .logo {
   font-weight: bold;
   text-align: left;
@@ -64,4 +68,8 @@ table {
 td {
   border: 1px solid black;
   padding: 3em;
+}
+
+form {
+  text-align: center;
 }
