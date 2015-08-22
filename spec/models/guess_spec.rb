@@ -11,7 +11,8 @@ describe "Guess model" do
 	end
 	describe "#correct!" do
 		it "changes the default value from false to true" do
-			expect{@guess.correct!}.should change { @guess.correct? }.from(false).to(true)
+			@guess.correct!
+			expect(@guess.correct?).to be_truthy
 		end
 	end
 end
