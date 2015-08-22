@@ -3,7 +3,8 @@ class Game < ActiveRecord::Base
 	has_many :guesses
 
 	def deck=(deck)
-		deck_id = deck.id
+		self.deck_id = deck.id
+		self.save
 	end
 
 	def deck
