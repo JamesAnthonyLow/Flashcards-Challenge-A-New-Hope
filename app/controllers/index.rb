@@ -8,9 +8,9 @@ get '/signup' do
 end
 
 post '/signup' do
-  user = User.new(username: params[:user])
+  user = User.new(params[:user])
   if user.save!
-    session[:user] = user
+    login(user)
     redirect "/"
   else
     redirect "/signup"
