@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
   		t.string :username, null: false, limit: 64
   		t.string :avatar_src, null: false
   		t.string :password_hash
-
   		t.timestamps
   	end
   end
