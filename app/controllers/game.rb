@@ -13,11 +13,7 @@ end
 post "/game/:id/guesses" do
   @card = Card.find_by(id: params[:card_id])
   @guess = Guess.new(game_id: params[:id], card_id: params[:card_id], user_answer: params[:user_answer])
-<<<<<<< HEAD
-  @card.answer == params[:user_answer] ? @guess.correct! : @guess.save
-=======
   @card.answer.downcase == params[:user_answer].downcase ? @guess.correct! : @guess.incorrect
->>>>>>> Fix user_guess logic so it is not case sensitive
   redirect "/game/#{params[:id]}"
 end
 
