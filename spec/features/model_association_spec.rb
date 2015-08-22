@@ -9,6 +9,14 @@ describe Card do
 	it 'has many guesses' do
 		 should have_many(:guesses)
 	end
-
 end
 
+describe Deck do
+	it 'has many games' do
+		 should have_many(:games)
+	end
+
+	it 'has many cards' do
+		 should have_many(:cards)
+	end
+end
