@@ -22,9 +22,12 @@ class Game < ActiveRecord::Base
 		end.sample
 	end
 
-	# def guesses_correct_first_try
-	# 	guesses.map(&:card)
-	# end
+	def first_try_guesses
+		guessed_cards = guesses.map(&:card)
+		guessed_cards.reject { |card| guessed_cards.count(card) > 1 }
+	end
 
-
+	def played_on
+		created_at.to_date
+	end
 end
