@@ -1,7 +1,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
-	include 'bcrypt'
-	validates :username, :password_hash, presence: true
+	include BCrypt
+	validates :username, presence: true
 	has_many :games
 
 	def password
