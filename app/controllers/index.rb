@@ -8,7 +8,13 @@ get '/signup' do
 end
 
 post '/signup' do
-  "worked"
+  user = User.new(username: params[:user])
+  if user.save!
+    session[:user] = user
+    redirect "/"
+  else
+    redirect "/signup"
+  end
 end
 
 get '/login' do
