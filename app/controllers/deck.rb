@@ -14,7 +14,7 @@ end
 
 get "/deck/:id/card/new" do
   @deck = Deck.find_by(id: params[:id])
-  @deck
+  @deck.update_attributes(params[:deck])
   @deck.update_cards(params[:cards]) if params[:cards]
   @add_card = true
   erb :"deck/create_deck"
@@ -23,7 +23,11 @@ end
 post "/deck/:id/final" do
   @deck = Deck.find_by(id: params[:id])
   @deck.update_cards(params[:cards]) if params[:cards]
-
+  if @deck.update_attributes(params[:deck])
+    redirect "/"
+  else
+    redirect "/deck/#{@deck.id}/card/new"
+  end
 end
 
 
