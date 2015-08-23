@@ -1,10 +1,12 @@
-<article>
-  <h2>Sign Up</h2>
-  <form action="/signup" method="POST">
-  <label for="avatar">Optional Avatar URL</label>
-  <input type="text" name="user[avatar_src]"></input><br>
-  <label for="email">Email</label>
-	<input type="text" name="user[email]" value="<%= session[:email] %>"></input><br>
-    <%= erb :"auth/user_form" %>
-  </form>
-</article>
+<body class="main_bg">
+  <article>
+    <h2>Sign Up</h2>
+    <form action="/signup" method="POST">
+    <label for="avatar">Optional Avatar URL</label>
+    <input type="text" name="user[avatar_src]"></input><br>
+    <label for="email">Email</label>
+  	<input type="text" name="user[email]" value="<%= session[:email] %>"></input><br>
+      <%= erb :"auth/user_form" %>
+    </form>
+  </article>
+</body>
