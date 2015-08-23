@@ -85,3 +85,13 @@ form {
   width: 10em;
   height: 10em;
 }
+
+.create_button {
+  border: 1px solid #000;
+  padding: 0.3em;
+  font-size: 1em;
+  text-align: center;
+  display: inline;
+  border-radius: 0.4em;
+  background: #000;
+}
