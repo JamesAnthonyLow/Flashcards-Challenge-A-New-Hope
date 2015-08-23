@@ -1,16 +1,16 @@
-<body class="index">
-<article>
-  <h2>Decks</h2>
-  <% if session[:user]%>
-    <p><a class="create_button" href="/deck/new">Create New Deck</a></p>
-  <% end %>
-
-  <% if decks.empty? %>
-    <p>There are currently no decks available to play.</p>
-  <% else %>
-    <% decks.each do |deck| %>
-    <p><a href="/deck/<%=deck.id%>"><%= deck.name %></a></p>
+<body class="main_bg">
+  <article>
+    <h2>Decks</h2>
+    <% if session[:user]%>
+      <p><a class="create_button" href="/deck/new">Create New Deck</a></p>
     <% end %>
-  <% end %>
-</article>
+
+    <% if decks.empty? %>
+      <p>There are currently no decks available to play.</p>
+    <% else %>
+      <% decks.each do |deck| %>
+      <p><a href="/deck/<%=deck.id%>"><%= deck.name %></a></p>
+      <% end %>
+    <% end %>
+  </article>
 </body>

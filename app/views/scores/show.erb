@@ -1,6 +1,6 @@
 <article>
   <h2><%= @deck.name %></h2>
-  <img class="deck_icon" src="<%= @deck.deck_img %>"><br>
+  <img class="deck_cover" src="<%= @deck.deck_img %>"><br>
   You have completed the round!<br>
   You answered ( <%= @game.first_try_guesses %> / <%= @game.cards_count %> ) cards correctly on the first try.<br>
   You submitted <%= @game.guesses.count %> total guesses before each card was answered correctly.

@@ -11,6 +11,7 @@ nav {
 header {
   border-bottom: 1px #999 solid;
   padding: 0 1em 0;
+  background: #FFF;
 }
 
 a {
@@ -18,7 +19,7 @@ a {
   color: #7CCFA6;
 }
 
-body.index {background-image: url(../img/star_wars_background.jpeg);
+body.main_bg {background-image: url(../img/star_wars_background.jpeg);
       background-repeat: no-repeat;
       background-size: 100% 100%;
       background-attachment: fixed;}
@@ -62,10 +63,14 @@ a.logo {
 article {
   position: relative;
   margin: auto;
-  height: 35em;
+  height: 23em;
   overflow: scroll;
   font-size: 1.2em;
   text-align: center;
+  width: 45%;
+  color: #FFF;
+  top: 2em;
+  padding: 2em;
 }
 
 h2 {
@@ -85,16 +90,13 @@ form {
   width: 8em;
   height: 8em;
   border: solid 1px #000;
+  background: #FFF;
 }
 
 .deck_cover {
-  width: 20em;
-  height: 20em;
-}
-
-.deck_icon {
-  width: 10em;
-  height: 10em;
+  width: 12em;
+  height: 12em;
+  background: #FFF;
 }
 
 .create_button {
@@ -105,4 +107,18 @@ form {
   display: inline;
   border-radius: 0.4em;
   background: #000;
+}
+
+input {
+  color: #000;
+  background: #FFF;
+  border: none;
+  border-radius: 0.4em;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

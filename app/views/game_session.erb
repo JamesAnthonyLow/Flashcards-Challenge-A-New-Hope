@@ -1,23 +1,19 @@
 <body class="game">
-<article>
+  <article>
+    <h1><%= @deck.name %></h1>
+    <%= @game.cards_count %> questions<br>
+    <img class="deck_cover" src="<%= @deck.deck_img %>">
+    <p><%= @card.question %></p>
 
-  <h1><%= @deck.name %></h1>
-  <%= @game.cards_count %> questions<br>
-  <img class="deck_icon" src="<%= @deck.deck_img %>">
-  <p><%= @card.question %></p>
+    <form action="/game/<%=@game.id%>/guesses" method="POST">
+    <input class="input" name="user_answer" type="text" value="" size="30" />
+    <input type="hidden" name="card_id" value="<%=@card.id%>"/><br>
+    <input type="submit" value="Submit"/>
+    </form>
 
-  <form action="/game/<%=@game.id%>/guesses" method="POST">
-  <input class="input" name="user_answer" type="text" value="" size="30" />
-  <input type="hidden" name="card_id" value="<%=@card.id%>"/><br>
-  <input type="submit" value="Submit"/>
-  </form>
-
-
-  <form action="/game/<%=@game.id%>" method="POST">
-    <input type="submit" value="Quit"/>
-  </form>
-
-</article>
+    <form action="/game/<%=@game.id%>" method="POST">
+      <input type="submit" value="Quit"/>
+    </form>
+  </article>
   <%= (erb :"incorrect", :locals => {:incorrect => @incorrect }) unless @incorrect.nil? %>
-</p>
 </body>
