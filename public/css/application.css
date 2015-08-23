@@ -137,3 +137,7 @@ img.left {
     bottom: 0px;
     height:80%;
 }
+
+.score {
+  color: black;
+}
