@@ -11,4 +11,8 @@ class Deck < ActiveRecord::Base
 	def user
 		User.find_by(id: self.creator_id)
 	end
+
+	def update_cards(params={})
+		
+	end
 end

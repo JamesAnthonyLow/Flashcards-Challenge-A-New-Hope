@@ -9,7 +9,9 @@
 </form>
 </div>
 <div class="container">
-
+	<% deck.cards each do |card| %>
+<%= erb :"create_card", :locals => {card: card} %>
+<% end %>
 </div>
 
 
