@@ -1,3 +1,4 @@
+<body class="game">
 <article>
 
   <h1><%= @deck.name %></h1>
@@ -19,3 +20,4 @@
 </article>
   <%= (erb :"incorrect", :locals => {:incorrect => @incorrect }) unless @incorrect.nil? %>
 </p>
+</body>
