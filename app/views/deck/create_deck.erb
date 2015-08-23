@@ -1,7 +1,7 @@
 <body class="main_bg">
   <article>
     <h2>Create New Deck</h2>
-    <form action="/deck/<%= @deck.id %>" method="POST">
+    <form action="/deck/<%= @deck.id %>/new" method="POST">
       <label for="deck_name">Deck Name:</label>
       <input class="input" name="deck[name]" type="text" value="<%= @deck.name %>" size="30" /><br>
       <label for="deck_img">Deck Image URL:</label>
