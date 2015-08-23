@@ -1,7 +1,9 @@
+	<div class="container">
 	<% cards.each do |card| %>
-<%= erb :"_form", :locals => {card: card, card_id: card.id } %>
+<%= erb :"card/_form", :locals => {card: card, card_id: card.id } %><hr>
 <% end %>
 <% if add_card %>
-<%= erb :"_form", :locals => {card: Card.new, card_id: Card.maximum(:id).next } %>
+<%= erb :"card/_form", :locals => {card: Card.new, card_id: Card.maximum(:id).next } %> <hr>
 <% end %>
   <input type="submit" value="Add Card"/>
+</div>

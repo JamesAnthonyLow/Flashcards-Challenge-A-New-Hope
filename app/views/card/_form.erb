@@ -1,5 +1,5 @@
   <label for="question">Question:</label>
-  <input class="input" name="question" type="text" value="<%= cards[card_id[question]]%>" size="100" />
+  <input class="input" name="cards[<%= card_id %>[question]]" type="text" value="<%= card.question %>" size="100" />
   <label for="answer">Answer:</label>
-  <input class="input" name="answer" type="text" value="<%= cards[card_id[answer]] %>" size="100" />
+  <input class="input" name="cards[<%= card_id %>[answer]]" type="text" value="<%= card.answer %>" size="100" />
 
