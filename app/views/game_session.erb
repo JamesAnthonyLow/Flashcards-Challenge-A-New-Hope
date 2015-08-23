@@ -1,24 +1,28 @@
-<p>Name of Deck:&nbsp<%= @deck.name %></p>
+<article>
 
-<p>
-  Question:&nbsp<%= @card.question %>
+  <h1><%= @deck.name %></h1>
+  <%= @game.cards_count %> questions<br>
+  <img class="deck_icon" src="<%= @deck.deck_img %>">
+  <p><%= @card.question %></p>
+
   <form action="/game/<%=@game.id%>/guesses" method="POST">
-    <div class="row">
-      <div><label for="guess">Guess:</label></div>
-      <div><input class="input" name="user_answer" type="text" value="" size="30" /></div>
-    </div>
-    <input type="hidden" name="card_id" value="<%=@card.id%>">
-    <div><input type="submit" value="Submit Answer"/></div>
+  <input class="input" name="user_answer" type="text" value="" size="30" />
+  <input type="hidden" name="card_id" value="<%=@card.id%>"><br>
+  <input type="submit" value="Submit"/>
   </form>
-  <script>function answer_incorrect(){
-  	var incorrect = "<%= @incorrect %>";
-  	if (incorrect != ""){
-  			alert(incorrect);
-  	}
-  }
-  answer_incorrect();</script>
+
+  <script>
+    function answer_incorrect(){
+      var incorrect = "<%= @incorrect %>";
+        if (incorrect != ""){
+    	   alert(incorrect);
+        }
+    }
+    answer_incorrect();
+  </script>
 
   <form action="/game/<%=@game.id%>" method="POST">
-    <div><input type="submit" value="Quit Game"/></div>
+    <input type="submit" value="Quit"/>
   </form>
-</p>
+
+</article>
