@@ -16,7 +16,7 @@
   <header>
     <nav>
       <% if session[:user_id] %>
-        <a class="button" href="#">Profile</a>
+        <a class="button" href="/profile/<%= session[:user_id] %>">Profile</a>
         <a class="button" href="/logout">Log Out</a>
       <% else %>
         <a class="button" href="/login">Log In</a>

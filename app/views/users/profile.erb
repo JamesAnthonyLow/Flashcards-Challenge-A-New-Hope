@@ -1,0 +1,17 @@
+<article>
+  <h2><%= user.username %></h2>
+  <% if user.avatar_src %>
+    <p><img src="<%= user.avatar_src %>"></p>
+  <% else %>
+    <p><img class="profile_img" src="http://green-romp.com/blog/wp-content/uploads/2013/06/2011-03-12-twitter-egg_copy.png"></p>
+  <% end %>
+  Email: <%= user.email %>
+  <% if user.games %>
+    <p>You currently haven't played any games!<br>
+      Check out the list of <a href="/">decks</a> to play.</p>
+  <% else %>
+    <% user.games do |game|%>
+      <%= game %><br>
+    <% end %>
+  <% end %>
+</article>
