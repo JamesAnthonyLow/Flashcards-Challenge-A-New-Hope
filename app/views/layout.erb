@@ -9,17 +9,17 @@
   <link href='http://fonts.googleapis.com/css?family=Cutive' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
-  <title>Flashcards</title>
+  <title>A New Hope: Flashcards</title>
 </head>
 <body>
   <header>
     <nav>
       <% if session[:user_id] %>
-        <a class="button" href="/profile/<%= session[:user_id] %>">Profile</a>
-        <a class="button" href="/logout">Log Out</a>
+        <a class="button shrink" href="/profile/<%= session[:user_id] %>">Profile</a>
+        <a class="button shrink" href="/logout">Log Out</a>
       <% else %>
-        <a class="button" href="/login">Log In</a>
-        <a class="button" href="/signup">Sign Up</a>
+        <a class="button shrink" href="/login">Log In</a>
+        <a class="button shrink" href="/signup">Sign Up</a>
       <% end %>
     </nav>
     <a class="logo" href="/">Flashcards</a>
