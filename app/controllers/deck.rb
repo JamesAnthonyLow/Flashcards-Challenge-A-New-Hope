@@ -3,7 +3,7 @@ get "/deck/new" do
   erb :"deck/create_deck"
 end
 
-post "/deck/:id" do
+post "/deck/:id/new" do
   @deck = Deck.find_or_initialize_by(id: params[:id])
   @deck.creator_id = session[:user_id]
   if @deck.update_attributes(params[:deck])
@@ -22,18 +22,14 @@ end
 post "/deck/:id/card/new" do
   @deck = Deck.find_by(id: params[:id])
   @deck.update_cards(params[:cards]) if params[:cards]
-  redirect "/deck/:id/card/new"
+  redirect "/deck/#{@deck.id}/card/new"
 end
 
 
-post "/deck/:id/final" do
+post "/deck/:id/complete" do
   @deck = Deck.find_by(id: params[:id])
   @deck.update_cards(params[:cards]) if params[:cards]
-  if @deck.update_attributes(params[:deck])
-    redirect "/"
-  else
-    redirect "/deck/#{@deck.id}/card/new"
-  end
+    redirect "/decks"
 end
 
 

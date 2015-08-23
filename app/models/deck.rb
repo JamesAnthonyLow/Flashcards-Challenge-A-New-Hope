@@ -19,7 +19,7 @@ class Deck < ActiveRecord::Base
 				card.safe_update(attributes)
 			else
 				card = Card.new(attributes)
-				card.save if card.valid?
+				cards << card if card.save
 			end
 		end
 	end
