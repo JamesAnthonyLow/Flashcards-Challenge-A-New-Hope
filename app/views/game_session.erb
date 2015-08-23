@@ -10,7 +10,20 @@
   <input type="hidden" name="card_id" value="<%=@card.id%>"><br>
   <input type="submit" value="Submit"/>
   </form>
+
+
+  <script>
+    function answer_incorrect(){
+      var incorrect = "<%= @incorrect %>";
+        if (incorrect != ""){
+    	   alert(incorrect);
+        }
+    }
+    answer_incorrect();
+  </script>
+
   <form action="/game/<%=@game.id%>" method="POST">
     <input type="submit" value="Quit"/>
   </form>
+
 </article>
