@@ -29,7 +29,10 @@ end
 post "/deck/:id/complete" do
   @deck = Deck.find_by(id: params[:id])
   @deck.update_cards(params[:cards]) if params[:cards]
-    redirect "/decks"
+  redirect "/"
 end
 
-
+delete "/decks/:id" do 
+  Deck.find_by(id: params[:id]).destroy
+  redirect "/"
+end

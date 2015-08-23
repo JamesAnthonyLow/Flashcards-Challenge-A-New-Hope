@@ -22,6 +22,7 @@ get '/login' do
 end
 
 post '/login' do
+  
   user = User.find_by(username: params[:user][:username])
   if User.authenticate(user, params[:user][:password_hash])
  		login(user)
