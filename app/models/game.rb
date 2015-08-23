@@ -21,6 +21,9 @@ class Game < ActiveRecord::Base
 				guess.correct? && self == guess.game
 			end
 		end.sample
+		# guesses.group_by(&:card).reject do |card_guesses|
+		# 	card_guesses.any?(&:correct?)
+		# end.sample
 	end
 
 	def first_try_guesses
