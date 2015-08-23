@@ -15,15 +15,11 @@ class Game < ActiveRecord::Base
 		deck.cards.count
 	end
 
+
 	def deck_sample
 		deck.cards.reject do |card| 
-			card.guesses.any? do |guess|
-				guess.correct? && self == guess.game
-			end
+			card.this_games_guesses(id).any?(&:correct?)
 		end.sample
-		# guesses.group_by(&:card).reject do |card_guesses|
-		# 	card_guesses.any?(&:correct?)
-		# end.sample
 	end
 
 	def first_try_guesses
