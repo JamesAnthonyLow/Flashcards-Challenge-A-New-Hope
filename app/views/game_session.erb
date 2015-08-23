@@ -10,4 +10,7 @@
     <input type="hidden" name="card_id" value="<%=@card.id%>">
     <div><input type="submit" value="Submit Answer"/></div>
   </form>
+  <form action="/game/<%=@game.id%>" method="POST">
+    <div><input type="submit" value="Quit Game"/></div>
+  </form>
 </p>
