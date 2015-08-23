@@ -1,6 +1,9 @@
 <article>
   <h2>Decks</h2>
-  <p><a class="create_button" href="/deck/new">Create New Deck</a></p>
+  <% if session[:user]%>
+    <p><a class="create_button" href="/deck/new">Create New Deck</a></p>
+  <% end %>
+
   <% if decks.empty? %>
     <p>There are currently no decks available to play.</p>
   <% else %>
