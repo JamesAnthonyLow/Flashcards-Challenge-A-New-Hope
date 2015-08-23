@@ -10,15 +10,8 @@
     <input type="hidden" name="card_id" value="<%=@card.id%>">
     <div><input type="submit" value="Submit Answer"/></div>
   </form>
-  <script>function answer_incorrect(){
-  	var incorrect = "<%= @incorrect %>";
-  	if (incorrect != ""){
-  			alert(incorrect);
-  	}
-  }
-  answer_incorrect();</script>
-
   <form action="/game/<%=@game.id%>" method="POST">
     <div><input type="submit" value="Quit Game"/></div>
   </form>
+  <script>answer_incorrect("<%= @incorrect.delete("\"","\'",")") %>");</script>
 </p>
