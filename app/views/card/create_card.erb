@@ -1,8 +1,7 @@
-<form action="/deck/<%=@deck.id%>/card" method="POST">
-  <label for="question">Question:</label>
-  <input class="input" name="question" type="text" value="" size="100" />
-  <label for="answer">Answer:</label>
-  <input class="input" name="answer" type="text" value="" size="100" />
-  <input name="submit" type="submit" value="Submit"/>
-  <input name="complete" type="submit" value="Complete Deck"/>
-</form>
+	<% cards.each do |card| %>
+<%= erb :"card/_form", :locals => {card: card, card_id: card.id } %>
+<% end %>
+<% if add_card %>
+<%= erb :"card/_form", :locals => {card: Card.new, card_id: Card.maximum(:id).next } %> 
+<% end %>
+  <input type="submit" value="Add Card"/>

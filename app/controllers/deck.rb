@@ -1,32 +1,35 @@
 get "/deck/new" do
-  @user = User.find_by(id: session[:user_id])
-
+  @deck = Deck.find_or_initialize_by(id: Deck.maximum(:id).next)
   erb :"deck/create_deck"
 end
 
-post "/deck" do
-  name = params[:deck_name]
-  user_id = params[:user_id]
-  deck_img = params[:deck_img]
-  @deck = Deck.create(name: name, creator_id: user_id, deck_img: deck_img)
-
-  redirect "/deck/#{@deck.id}/card/new"
+post "/deck/:id/new" do
+  @deck = Deck.find_or_initialize_by(id: params[:id])
+  @deck.creator_id = session[:user_id]
+  if @deck.update_attributes(params[:deck])
+    redirect "/deck/#{@deck.id}/card/new"
+  else 
+    redirect "/deck/new"
+  end
 end
 
 get "/deck/:id/card/new" do
   @deck = Deck.find_by(id: params[:id])
-  erb :"/card/create_card"
+  @add_card = true
+  erb :"deck/create_deck"
 end
 
-post "/deck/:id/card" do
-  deck = Deck.find_by(id: params[:id])
-  card = Card.create(question: params[:question], answer: params[:answer])
-  deck.cards << card
-
-  if params[:submit]
-    redirect "/deck/#{deck.id}/card/new"
-  else params[:complete]
-    redirect "/"
-  end
+post "/deck/:id/card/new" do
+  @deck = Deck.find_by(id: params[:id])
+  @deck.update_cards(params[:cards]) if params[:cards]
+  redirect "/deck/#{@deck.id}/card/new"
 end
+
+
+post "/deck/:id/complete" do
+  @deck = Deck.find_by(id: params[:id])
+  @deck.update_cards(params[:cards]) if params[:cards]
+    redirect "/decks"
+end
+
 
