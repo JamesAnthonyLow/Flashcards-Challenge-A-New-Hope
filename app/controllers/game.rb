@@ -16,6 +16,7 @@ post "/game/:id/guesses" do
   if @card.answer == params[:user_answer]
     @guess.correct! 
   else
+    session[:incorrect] = "That was incorrect, the correct answer is #{@card.answer}"
     @guess.save
   end
   redirect "/game/#{params[:id]}"
@@ -25,6 +26,8 @@ get "/game/:id" do
   @game = Game.find_by(id: params[:id])
   @card = @game.deck_sample
   @deck = @game.deck
+  @incorrect = session[:incorrect]
+  session[:incorrect] = ""
   if @card
     erb :game_session
   else
