@@ -1,5 +1,4 @@
 class Guess < ActiveRecord::Base
-	validates :user_answer, presence: true
 	belongs_to :card
 	belongs_to :game
 
