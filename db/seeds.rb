@@ -23,8 +23,8 @@ card_collection_2 = [{question: "Actor Tim Russ is best known for portraying the
 ]
 
 
-deck_1 = Deck.create!(name:"Game of Thrones")
-deck_2 = Deck.create!(name:"Star Trek Trivia")
+deck_1 = Deck.create!(name:"Game of Thrones", deck_img: "http://orig05.deviantart.net/c1b2/f/2014/044/5/e/game_of_thrones___winter_is_coming___ico__by_annyiss99-d76a8yr.png", desc: "A trivia game for true Game of Throne fans.")
+deck_2 = Deck.create!(name:"Star Trek Trivia", deck_img: "http://assets.huluim.com/blog/StarTrek_Capns.jpeg")
 
 card_collection_1.each do |card|
   c = Card.new(card)

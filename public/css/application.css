@@ -75,3 +75,8 @@ form {
   height: 8em;
   border: solid 1px #000;
 }
+
+.deck_cover {
+  width: 20em;
+  height: 20em;
+}

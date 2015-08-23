@@ -1,5 +1,8 @@
-<form id="contact_form" action="/deck/<%=@deck.id%>" method="POST">
-  <div class="row">
-      <input type="submit" value="start game">
-  </div>
-</form>
+<article>
+  <h2><%= @deck.name %></h2>
+  <img class="deck_cover" src="<%= @deck.deck_img %>">
+  <p><%= @deck.desc %></p>
+  <form id="contact_form" action="/deck/<%= @deck.id %>" method="POST">
+    <input type="submit" value="Start">
+  </form>
+</article>
