@@ -1,8 +1,4 @@
 <body class="main_bg">
-	<form action="/decks/<%= @deck.id %>" method="POST">
-		<input type="hidden" name="_method" value="DELETE" />
-		<input type="submit" value="Trash" />
-	</form>
   <article>
     <h2><%= @deck.name %></h2>
     <img class="deck_cover" src="<%= @deck.deck_img %>">
@@ -10,5 +6,6 @@
     <form id="contact_form" action="/deck/<%= @deck.id %>" method="POST">
       <input type="submit" value="Start">
     </form>
+	<%= erb :"deck/delete", :locals => {id: @deck.id} if @deck.creator_id == session[:user_id] %>
   </article>
 </body>
