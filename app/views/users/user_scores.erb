@@ -1,11 +1,24 @@
-<div>
-  <%= @user.username %>
-
+<div class="container">
+  <br>
+  <br>
+  <div class="username">Here are your stats,&nbsp<%= @user.username %>!</div>
+  <br>
+  <br>
   <% @user.games.each do |game| %>
-    <li><%= game.deck.name %></li>
-    <li><%= game.time %></li>
-    <li><%= game.cards_count %></li>
-    <li><%= game.first_try_guesses %></li>
-    <li><%= game.guesses.count %></li><br>
+    <h2><%= game.deck.name %></h2>
+    <table style="width:90%">
+      <tr>
+        <th>Date Played</th>
+        <th>Cards in Deck</th>
+        <th>First Guess Correct</td>
+        <th>Total Guesses</th>
+      </tr>
+      <tr>
+        <td><%= game.time %></td>
+        <td><%= game.cards_count %></td>
+        <td><%= game.first_try_guesses %></td>
+        <td><%= game.guesses.count %></td>
+      </tr>
+    </table><br>
   <%end%>
 </div>
