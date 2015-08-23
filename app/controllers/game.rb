@@ -27,7 +27,7 @@ get "/game/:id" do
   @card = @game.deck_sample
   @deck = @game.deck
   @incorrect = session[:incorrect]
-  session[:incorrect] = ""
+  session[:incorrect] = nil
   if @card
     erb :game_session
   else
