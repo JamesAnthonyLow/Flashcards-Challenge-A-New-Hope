@@ -8,12 +8,31 @@
     <% end %>
     Email: <%= current_user.email %>
     <% if current_user.games %>
+      <br>
+      <br>
+      <br>
+      <div>Your current stats:</div>
+      <br>
+      <% @user.games.each do |game| %>
+        <h2><%= game.deck.name %></h2>
+        <table style="width:90%">
+          <tr>
+            <th>Date Played</th>
+            <th>Cards in Deck</th>
+            <th>First Guess Correct</td>
+            <th>Total Guesses</th>
+          </tr>
+          <tr>
+            <td><%= game.time %></td>
+            <td><%= game.cards_count %></td>
+            <td><%= game.first_try_guesses %></td>
+            <td><%= game.guesses.count %></td>
+          </tr>
+        </table><br>
+      <%end%>
+    <% else %>
       <p>You currently haven't played any games!<br>
         Check out the list of <a href="/">decks</a> to play.</p>
-    <% else %>
-      <% current_user.games do |game|%>
-        <%= game %><br>
-      <% end %>
     <% end %>
   </article>
 </body>
