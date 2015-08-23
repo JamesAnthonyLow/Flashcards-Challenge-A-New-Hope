@@ -1,7 +1,7 @@
-	<% cards.each do |card| %>
-<%= erb :"card/_form", :locals => {card: card, card_id: card.id } %>
+	<% cards.each.with_index do |card, index| %>
+<%= erb :"card/_form", :locals => {card: card, card_id: card.id, index: index } %>
 <% end %>
 <% if add_card %>
-<%= erb :"card/_form", :locals => {card: Card.new, card_id: Card.maximum(:id).next } %> 
+<%= erb :"card/_form", :locals => {card: Card.new, card_id: Card.maximum(:id).next, index: cards.count } %> 
 <% end %>
   <input type="submit" value="Add Card"/>
