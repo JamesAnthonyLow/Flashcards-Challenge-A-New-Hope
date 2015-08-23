@@ -34,3 +34,7 @@ get "/game/:id" do
     redirect "/game/#{@game.id}/score"
   end
 end
+
+post "/game/:id" do
+  redirect "/game/#{params[:id]}/score"
+end
