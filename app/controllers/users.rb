@@ -1,7 +1,6 @@
 get "/profile/:id" do
-	if params[:id] == current_user.id	
-  		user = User.find_by(id: session[:user_id])
-  		erb :"users/profile", locals: {user: user}
+	if params[:id].to_i == current_user.id
+  		erb :"users/profile"
   	else
   		erb :"auth/unauth"
   	end
