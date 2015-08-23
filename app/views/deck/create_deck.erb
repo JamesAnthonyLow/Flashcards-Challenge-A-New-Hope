@@ -1,17 +1,23 @@
 <div class="container">
 <form action="/deck" method="POST">
   <label for="deck_name">Name:</label>
-  <input class="input" name="deck_name" type="text" value="" size="30" />
+  <input class="input" name="deck[name]" type="text" value="" size="30" />
   <label for="deck_img">Image URL:</label>
-  <input class="input" name="deck_img" type="text" value="" size="30" />
-  <input type="hidden" name="user_id" value="<%=@user.id%>"/>
-  <input type="submit" value="Submit"/>
-</form>
-</div>
+  <input class="input" name="deck[deck_img]" type="text" value="" size="30" />
+  <input type="hidden" name="deck[creator_id]" value="<%=@user.id%>"/>
 <div class="container">
 	<% deck.cards each do |card| %>
-<%= erb :"create_card", :locals => {card: card} %>
+<%= erb :"create_card", :locals => {card: card, card_id: card.id } %>
 <% end %>
+<% if @add_card %>
+<%= erb :"create_card", :locals => {card: Card.new, card_id: Card.maximum(:id).next } %>
+<% end %>
+</div>
+  <input type="submit" value="Add Card"/>
+</form>
+<form action="/deck/<%= @deck.id %>/complete" method="POST">
+	  <input type="submit" value="Add Card"/>
+</form>
 </div>
 
 

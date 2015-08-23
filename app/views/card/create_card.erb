@@ -1,8 +1,5 @@
-<form action="/deck/<%=@deck.id%>/card" method="POST">
   <label for="question">Question:</label>
-  <input class="input" name="question" type="text" value="" size="100" />
+  <input class="input" name="question" type="text" value="<%= cards[card_id[question]]%>" size="100" />
   <label for="answer">Answer:</label>
-  <input class="input" name="answer" type="text" value="" size="100" />
-  <input name="submit" type="submit" value="Submit"/>
-  <input name="complete" type="submit" value="Complete Deck"/>
-</form>
+  <input class="input" name="answer" type="text" value="<%= cards[card_id[answer]] %>" size="100" />
+
