@@ -1,5 +1,6 @@
 html {
   font-family: 'Nunito', sans-serif;
+  background: #000;
 }
 
 nav {
@@ -142,10 +143,6 @@ img.left {
     left: 0px;
     bottom: 0px;
     height:80%;
-}
-
-.score {
-  color: black;
 }
 
 .shrink{
