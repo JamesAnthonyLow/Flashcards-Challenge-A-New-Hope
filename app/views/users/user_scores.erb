@@ -1,0 +1,11 @@
+<div>
+  <%= @user.username %>
+
+  <% @user.games.each do |game| %>
+    <li><%= game.deck.name %></li>
+    <li><%= game.time %></li>
+    <li><%= game.cards_count %></li>
+    <li><%= game.first_try_guesses %></li>
+    <li><%= game.guesses.count %></li><br>
+  <%end%>
+</div>
