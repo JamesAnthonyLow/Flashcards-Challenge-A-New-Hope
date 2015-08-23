@@ -1,5 +1,7 @@
-  <label for="question">Question:</label>
-  <input class="input" name="question" type="text" value="<%= cards[card_id[question]]%>" size="100" />
-  <label for="answer">Answer:</label>
-  <input class="input" name="answer" type="text" value="<%= cards[card_id[answer]] %>" size="100" />
-
+	<% cards.each do |card| %>
+<%= erb :"_form", :locals => {card: card, card_id: card.id } %>
+<% end %>
+<% if add_card %>
+<%= erb :"_form", :locals => {card: Card.new, card_id: Card.maximum(:id).next } %>
+<% end %>
+  <input type="submit" value="Add Card"/>
