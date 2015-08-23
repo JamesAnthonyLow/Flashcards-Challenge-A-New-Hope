@@ -16,18 +16,20 @@ header {
 
 a {
   text-decoration: none;
-  color: #7CCFA6;
+  color: #6CB5FF;
 }
 
 body.main_bg {
-      background-attachment: fixed;
-      background-color: #000000;
-    }
+  background-attachment: fixed;
+  background-color: #000000;
+}
 
-body.game {background-image: url(../img/anewhope2.jpg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-attachment: fixed;
+body.alt_bg {
+  background-image: url(../img/anewhope2.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  color: #000;
 }
 
 .button {
@@ -40,12 +42,12 @@ body.game {background-image: url(../img/anewhope2.jpg);
   background: #000;
 }
 
-a.button {
-  color: #FFF;
+a:hover {
+  color: #DA4747;
 }
 
-a.button:hover {
-  color: #7CCFA6;
+a.button {
+  color: #FFF;
 }
 
 a.logo {
@@ -63,13 +65,12 @@ a.logo {
 article {
   position: relative;
   margin: auto;
-  height: 23em;
+  height: 25em;
   overflow: scroll;
   font-size: 1.2em;
   text-align: center;
   width: 45%;
   color: #FFF;
-  top: 2em;
   padding: 2em;
 }
 
@@ -114,6 +115,7 @@ input {
   background: #FFF;
   border: none;
   border-radius: 0.4em;
+  font-size: 1em;
 }
 
 input:focus,
@@ -140,4 +142,20 @@ img.left {
 
 .score {
   color: black;
+}
+
+.shrink{
+  -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -ms-transition:all 0.5s ease-out;
+  -o-transition:all 0.5s ease-out;
+  transition:all 0.5s ease-out;
+}
+
+.shrink:hover {
+  -webkit-transform:scale(.9);
+  -moz-transform:scale(.9);
+  -ms-transform:scale(.9);
+  -o-transform:scale(.9);
+  transform:scale(.9);
 }
