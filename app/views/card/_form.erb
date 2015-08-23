@@ -1,6 +1,6 @@
   <div class="container">
   	<hr>
-  	<h4>Card #<%= card_id %>:</h4>
+  	<h4>Card #<%= "#{index + 1}" %>:</h4>
   <label for="question">Question:</label>
   <input style="border: solid" class="input" name="cards[<%= card_id %>[question]]" type="text" value="<%= card.question %>" size="100" />
   <label for="answer">Answer:</label>
