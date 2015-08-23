@@ -14,7 +14,13 @@ class Deck < ActiveRecord::Base
 
 	def update_cards(params={})
 		params.each_pair do |card_id, attributes|
-			Card.find_by(id: card_id.to_s).safe_update(attributes)
+			card = Card.find_by(id: card_id.to_s)
+			if card
+				card.safe_update(attributes)
+			else
+				card = Card.new(attributes)
+				card.save
+			end
 		end
 	end
 end
