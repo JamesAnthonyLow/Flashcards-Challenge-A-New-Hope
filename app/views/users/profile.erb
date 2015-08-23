@@ -7,7 +7,7 @@
       <p><img class="profile_img" src="<%= current_user.avatar_src %>"></p>
     <% end %>
     Email: <%= current_user.email %>
-    <% if current_user.games %>
+    <% if !current_user.games.empty? %>
       <br>
       <br>
       <br>
