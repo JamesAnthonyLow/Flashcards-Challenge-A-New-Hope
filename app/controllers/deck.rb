@@ -9,6 +9,7 @@ post "/deck" do
   user_id = params[:user_id]
   deck_img = params[:deck_img]
   @deck = Deck.create(name: name, creator_id: user_id, deck_img: deck_img)
+  @deck.cards << Card.new
   #refactor for bad input and for easier initialization
   redirect "/deck/#{@deck.id}/card/new"
 end
