@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(user, password)
-    user.password_hash == password
+    return user.password_hash == password unless user.nil?
   end
 
 end
