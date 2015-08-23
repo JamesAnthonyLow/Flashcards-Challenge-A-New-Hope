@@ -10,9 +10,23 @@ post "/deck" do
   deck_img = params[:deck_img]
   @deck = Deck.create(name: name, creator_id: user_id, deck_img: deck_img)
 
-  redirect "/deck/#{@deck.id}"
+  redirect "/deck/#{@deck.id}/card/new"
 end
 
 get "/deck/:id/card/new" do
-
+  @deck = Deck.find_by(id: params[:id])
+  erb :"/card/create_card"
 end
+
+post "/deck/:id/card" do
+  deck = Deck.find_by(id: params[:id])
+  card = Card.create(question: params[:question], answer: params[:answer])
+  deck.cards << card
+
+  if params[:submit]
+    redirect "/deck/#{deck.id}/card/new"
+  else params[:complete]
+    redirect "/"
+  end
+end
+
