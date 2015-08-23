@@ -6,6 +6,7 @@ end
 post "/deck/:id" do
   game = Game.new
   game.deck = Deck.find_by(id: params[:id])
+  game.user_id = current_user.id if current_user
   game.save
   redirect "/game/#{game.id}"
 end
