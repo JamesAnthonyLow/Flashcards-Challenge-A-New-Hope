@@ -7,7 +7,7 @@
 
   <form action="/game/<%=@game.id%>/guesses" method="POST">
   <input class="input" name="user_answer" type="text" value="" size="30" />
-  <input type="hidden" name="card_id" value="<%=@card.id%>"><br>
+  <input type="hidden" name="card_id" value="<%=@card.id%>"/><br>
   <input type="submit" value="Submit"/>
   </form>
 
