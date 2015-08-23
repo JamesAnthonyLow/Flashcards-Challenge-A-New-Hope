@@ -1,14 +1,10 @@
 <form action="/deck" method="POST">
-  <div class="row">
-    <div>
-      <label for="deck_name">Name:</label>
-      <input class="input" name="deck_name" type="text" value="" size="30" />
-      <label for="deck_img">Image URL:</label>
-      <input class="input" name="deck_img" type="text" value="" size="30" />
-      <input type="hidden" name="user_id" value="<%=@user.id%>"/>
-      <input type="submit" value="Submit"/>
-    </div>
-  </div>
+  <label for="deck_name">Name:</label>
+  <input class="input" name="deck_name" type="text" value="" size="30" />
+  <label for="deck_img">Image URL:</label>
+  <input class="input" name="deck_img" type="text" value="" size="30" />
+  <input type="hidden" name="user_id" value="<%=@user.id%>"/>
+  <input type="submit" value="Submit"/>
 </form>
 
 
