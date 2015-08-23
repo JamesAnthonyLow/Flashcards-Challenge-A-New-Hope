@@ -1,3 +1,5 @@
+require 'date'
+
 class Game < ActiveRecord::Base
 	belongs_to :user
 	has_many :guesses
@@ -17,7 +19,7 @@ class Game < ActiveRecord::Base
 
 
 	def deck_sample
-		deck.cards.reject do |card| 
+		deck.cards.reject do |card|
 			card.this_games_guesses(id).any?(&:correct?)
 		end.sample
 	end
@@ -29,5 +31,11 @@ class Game < ActiveRecord::Base
 
 	def played_on
 		created_at.to_date
+	end
+
+	def time
+		p self.created_at
+		d = Date.parse(self.created_at.to_s)
+		d.strftime("%m-%d-%Y")
 	end
 end
