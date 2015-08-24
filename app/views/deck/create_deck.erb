@@ -13,7 +13,7 @@
   	  <%= erb :"card/create_card", :locals => {cards: @deck.cards, add_card: @add_card} %>
   	  <% end %>
     </form>
-    <form action="/deck/<%= @deck.id %>/complete" method="POST">
+    <form action`="/deck/<%= @deck.id %>/complete" method="POST">
     	 <input type="submit" value="complete"/>
     </form>
   </article>
