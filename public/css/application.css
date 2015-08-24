@@ -1,6 +1,5 @@
 html {
   font-family: 'Nunito', sans-serif;
-  background: #000;
 }
 
 nav {
@@ -26,11 +25,8 @@ body.main_bg {
 }
 
 body.alt_bg {
-  background-image: url(../img/anewhope2.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   background-attachment: fixed;
-  color: #000;
+  background-color: #ff9022;
 }
 
 .button {
@@ -67,12 +63,12 @@ article {
   position: relative;
   margin: auto;
   height: 25em;
-  overflow: ;
   font-size: 1.2em;
   text-align: center;
   width: 45%;
   color: #FFF;
   padding: 2em;
+  overflow: auto;
 }
 
 h2, h3, h4 {
@@ -143,6 +139,28 @@ img.left {
     left: 0px;
     bottom: 0px;
     height:80%;
+}
+
+img.luke {
+    position: absolute;
+    left: 20px;
+    bottom: 0px;
+    height:20%;
+}
+
+img.bottom {
+    position: absolute;
+    bottom: 0px;
+    height: 10%;
+    width: 100%;
+    left:0px;
+}
+
+img.moon {
+    position: absolute;
+    right: 50px;
+    top: 200px;
+    height:30%;
 }
 
 .shrink{

@@ -14,6 +14,9 @@
     <form action="/game/<%=@game.id%>" method="POST">
       <input type="submit" value="Quit"/>
     </form>
-  </article>
   <%= (erb :"incorrect", :locals => {:incorrect => @incorrect }) unless @incorrect.nil? %>
+  </article>
+  <img class="luke" src="../img/luke.png">
+  <img class="bottom" src="../img/ground.png">
+  <img class="moon" src="../img/moons.png">
 </body>
