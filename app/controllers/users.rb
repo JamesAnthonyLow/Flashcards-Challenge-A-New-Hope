@@ -10,7 +10,7 @@ end
 
 get "/users/:id" do
   @user = User.find_by(id: params[:id])
-  @user_decks =  Deck.all.select { |deck| deck.creator_id == @user.id }
+  @user_decks =  Deck.where(creator_id: current_user.id)
 	if params[:id].to_i == current_user.id
   		erb :"users/profile"
     else
