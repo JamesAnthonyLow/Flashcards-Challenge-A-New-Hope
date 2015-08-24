@@ -75,7 +75,7 @@ article {
   padding: 2em;
 }
 
-h2 {
+h2, h3, h4 {
   text-align: center;
   font-family: 'Cutive', serif;
 }
