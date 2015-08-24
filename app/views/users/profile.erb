@@ -1,20 +1,17 @@
 <body class="alt_bg">
   <article>
-    <h2><%= current_user.username %></h2>
+    <h2><%= current_user.username %>'s Profile</h2>
     <% if current_user.avatar_src == "" %>
       <p><img class="profile_img" src="http://i.imgur.com/5hbud8l.png?1"></p>
     <% else %>
       <p><img class="profile_img" src="<%= current_user.avatar_src %>"></p>
     <% end %>
-    <div>Email: <%= current_user.email %></div>
+
+    <h3>Stats</h3>
+    <hr>
     <% if !current_user.games.empty? %>
-      <br>
-      <br>
-      <br>
-      <div>Your current stats:</div>
-      <br>
       <% @user.games.each do |game| %>
-        <h2><%= game.deck.name %></h2>
+        <h4><%= game.deck.name %></h4>
         <table style="width:90%">
           <tr>
             <th>Date Played</th>
@@ -28,16 +25,21 @@
             <td><%= game.first_try_guesses %></td>
             <td><%= game.guesses.count %></td>
           </tr>
-        </table><br>
+        </table>
       <%end%>
     <% else %>
-      <p>You currently haven't played any games!<br>
-        Check out the list of <a href="/">decks</a> to play.</p>
+      <p>You currently haven't played any games.<br>
+      Check out the list of <a href="/">decks</a> to play.</p>
     <% end %>
 
-    <div><h3>Your Decks:</h3></div>  
-    <div>
-      <%=@
-    </div>
+    <hr>
+    <h3>Your Decks</h3>
+    <% if @user_decks.empty? %>
+      You currently haven't created any decks.
+    <% else %>
+      <% @user_decks.each do |deck| %>
+          <a href="/deck/<%=deck.id%>"><%= deck.name %></a>
+      <% end %>
+    <% end %>
   </article>
 </body>
