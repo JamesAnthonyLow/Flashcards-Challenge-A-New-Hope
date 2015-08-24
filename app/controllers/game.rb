@@ -14,7 +14,7 @@ end
 post "/game/:id/guesses" do
   @card = Card.find_by(id: params[:card_id])
   @guess = Guess.new(game_id: params[:id], card_id: params[:card_id], user_answer: params[:user_answer])
-  if @card.answer == params[:user_answer]
+  if @card.answer.downcase == params[:user_answer].downcase
     @guess.correct!
   else
     session[:incorrect] = "That was incorrect, the correct answer is #{@card.answer}"
