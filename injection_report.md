@@ -28,6 +28,7 @@ As you can see the card question attribute is both inputted and displayed by thi
 ```
 
 So when the server renders the form the html ends up looking like this:
+```
  <input style="border: solid" class="input" name="cards[<%= card_id %>[question]]" type="text" value="<%= ""%>"<img src="imgsrc.gif" /> %>" size="63" />
 ```
 
@@ -35,9 +36,11 @@ Browsers are incredibly forgiving and are able to ignore what looks like broken 
 
 From there it was a simple matter of using an "onerror" attribute to inject a Javascript alert like so:
 
+
 ```
 ""%>"<img src="imgsrc.gif" onerror=alert("test") />
 ```
+
 Inputting nonsense into the source attribute will cause the Javascript in the onerror attribute to be called.  This essentially means that I can inject my own functions into the server and do who knows what.
 
 The remedy would be properly escaping the input.  Before displaying the question we could delete all characters such as "%", ">", or quotes.
