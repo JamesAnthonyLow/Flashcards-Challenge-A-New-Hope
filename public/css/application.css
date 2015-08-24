@@ -1,6 +1,5 @@
 html {
   font-family: 'Nunito', sans-serif;
-  background: #000;
 }
 
 nav {
@@ -26,11 +25,8 @@ body.main_bg {
 }
 
 body.alt_bg {
-  background-image: url(../img/anewhope2.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   background-attachment: fixed;
-  color: #000;
+  background-color: #ff9022;
 }
 
 .button {
