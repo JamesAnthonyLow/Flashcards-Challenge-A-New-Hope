@@ -6,7 +6,7 @@
     <% else %>
       <p><img class="profile_img" src="<%= current_user.avatar_src %>"></p>
     <% end %>
-    Email: <%= current_user.email %>
+    <div>Email: <%= current_user.email %></div>
     <% if !current_user.games.empty? %>
       <br>
       <br>
@@ -34,5 +34,10 @@
       <p>You currently haven't played any games!<br>
         Check out the list of <a href="/">decks</a> to play.</p>
     <% end %>
+
+    <div><h3>Your Decks:</h3></div>  
+    <div>
+      <%=@
+    </div>
   </article>
 </body>
