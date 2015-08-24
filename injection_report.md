@@ -36,7 +36,7 @@ Browsers are incredibly forgiving and are able to ignore what looks like broken 
 From there it was a simple matter of using an "onerror" attribute to inject a Javascript alert like so:
 
 ```
-""%>"<img src="somebrokensrc.gif" onerror=alert("test") />
+""%>"<img src="imgsrc.gif" onerror=alert("test") />
 ```
 Inputting nonsense into the source attribute will cause the Javascript in the onerror attribute to be called.  This essentially means that I can inject my own functions into the server and do who knows what.
 
