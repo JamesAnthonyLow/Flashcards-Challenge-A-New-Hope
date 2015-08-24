@@ -1,4 +1,3 @@
-require 'pry'
 get '/' do
   decks = Deck.all
   erb :index, locals: {decks: decks}
@@ -24,7 +23,7 @@ post '/login' do
 end
 
 get '/logout' do
-  session.clear
+  logout!
   redirect "/"
 end
 
