@@ -4,6 +4,7 @@ get "/deck/:id/card/new" do
   erb :"deck/create_deck"
 end
 
+#ZM: /deck/:id/card 
 post "/deck/:id/card/new" do
   @deck = Deck.find_by(id: params[:id])
   @deck.update_cards(params[:cards]) if params[:cards]

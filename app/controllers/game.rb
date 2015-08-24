@@ -14,9 +14,12 @@ end
 post "/game/:id/guesses" do
   @card = Card.find_by(id: params[:card_id])
   @guess = Guess.new(game_id: params[:id], card_id: params[:card_id], user_answer: params[:user_answer])
+
+  #ZM: Why don't you just do this in the initalize of the guess? 
   if @card.answer == params[:user_answer]
     @guess.correct!
   else
+    #ZM: Use a flash message! 
     session[:incorrect] = "That was incorrect, the correct answer is #{@card.answer}"
     @guess.save
   end
@@ -27,8 +30,11 @@ get "/game/:id" do
   @game = Game.find_by(id: params[:id])
   @card = @game.deck_sample
   @deck = @game.deck
+
+  #ZM: WHAATTTTTTTTT ISSSS THISSSSS?
   @incorrect = session[:incorrect]
   session[:incorrect] = nil
+  
   if @card
     erb :game_session
   else
