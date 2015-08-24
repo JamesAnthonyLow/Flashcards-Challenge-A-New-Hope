@@ -38,7 +38,7 @@
       You currently haven't created any decks.
     <% else %>
       <% @user_decks.each do |deck| %>
-          <a href="/deck/<%=deck.id%>"><%= deck.name %></a>
+          <a href="/deck/<%=deck.id%>"><%= deck.name %></a><br>
       <% end %>
     <% end %>
   </article>
